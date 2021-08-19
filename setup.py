@@ -8,7 +8,7 @@ setuptools.setup(
     author_email="matteo.moro@edu.unige.it",
     description="Toolbox to move computer cursor with body motion",
     long_description="Toolbox to move computer cursor with body motion",
-    url="https://github.com/MoroMatteo/markerlessBoMI.git",
+    url="https://github.com/MoroMatteo/markerlessBoMI_FaMa.git",
     packages=setuptools.find_packages(),
     install_requires = ['absl-py==0.13.0',
 'actionlib==1.13.2',
