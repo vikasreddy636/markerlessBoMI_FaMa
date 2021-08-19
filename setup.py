@@ -60,7 +60,7 @@ setuptools.setup(
 'laser_geometry==1.6.7',
 'Markdown==3.3.4',
 'matplotlib==3.4.3',
-'mediapipe==0.8.7',
+'mediapipe', #==0.8.7
 'message-filters==1.15.11',
 'MouseInfo==0.1.3',
 'numpy==1.19.5',
