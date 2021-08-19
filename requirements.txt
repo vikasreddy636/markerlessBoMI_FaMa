@@ -151,7 +151,7 @@ tensorboard-plugin-wit==1.8.0
 tensorflow==2.6.0
 tensorflow-estimator==2.6.0
 termcolor==1.1.0
-tf====1.13.2
+tf==1.13.2
 tf-conversions==1.13.2
 tf2-geometry-msgs==0.7.5
 tf2-kdl==0.7.5

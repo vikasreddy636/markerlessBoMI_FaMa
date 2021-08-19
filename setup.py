@@ -60,7 +60,7 @@ setuptools.setup(
 'laser_geometry==1.6.7',
 'Markdown==3.3.4',
 'matplotlib==3.4.3',
-'mediapipe', #==0.8.7
+'mediapipe==0.8.7', #
 'message-filters==1.15.11',
 'MouseInfo==0.1.3',
 'numpy==1.19.5',
@@ -163,7 +163,7 @@ setuptools.setup(
 'tensorflow==2.6.0',
 'tensorflow-estimator==2.6.0',
 'termcolor==1.1.0',
-'tf====1.13.2',
+'tf==1.13.2',
 'tf-conversions==1.13.2',
 'tf2-geometry-msgs==0.7.5',
 'tf2-kdl==0.7.5',
