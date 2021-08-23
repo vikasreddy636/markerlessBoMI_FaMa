@@ -16,3 +16,5 @@ step 2 --> activate virtual enviroment -- $ source $path/to/place/env$/bin/activ
 step 3 --> upgrade pip -- $ pip install --upgrade pip
 
 step 4 --> pip install git+https://github.com/MoroMatteo/markerlessBoMI_FaMa.git
+
+step 5 --> install tkinter --> $ sudo apt-get install python3-tk 
