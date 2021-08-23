@@ -1,6 +1,6 @@
 TESTED with python>=3.7
 
-$ sudo apt update \\
+$ sudo apt update \n
 $ sudo apt upgrade \\
 $ sudo apt install python3-pip \\
 $ sudo apt-get install python3-venv
