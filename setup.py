@@ -15,7 +15,7 @@ setuptools.setup(
 #'angles==1.9.13',
 'astunparse==1.6.3',
 'attrs==21.2.0',
-'bondpy==1.8.6',
+#'bondpy==1.8.6',
 'cached-property==1.5.2',
 'cachetools==4.2.2',
 'camera-calibration==1.15.3',
