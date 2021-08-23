@@ -19,7 +19,7 @@ setuptools.setup(
 'cached-property==1.5.2',
 'cachetools==4.2.2',
 'camera-calibration==1.15.3',
-'camera-calibration-parsers==1.12.0',
+#'camera-calibration-parsers==1.12.0',
 'catkin==0.8.10',
 'certifi==2021.5.30',
 'charset-normalizer==2.0.4',
