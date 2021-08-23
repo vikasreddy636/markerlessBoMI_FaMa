@@ -11,7 +11,7 @@ setuptools.setup(
     url="https://github.com/MoroMatteo/markerlessBoMI_FaMa.git",
     packages=setuptools.find_packages(),
     install_requires = ['absl-py==0.13.0',
-'actionlib==1.13.1',
+'actionlib==1.13.2-1',
 'angles==1.9.13',
 'astunparse==1.6.3',
 'attrs==21.2.0',
