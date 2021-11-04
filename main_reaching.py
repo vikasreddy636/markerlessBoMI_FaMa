@@ -1098,6 +1098,7 @@ def mediapipe_forwardpass(holistic, mp_holistic, lock, q_frame, r, num_joints, j
                 body_list.append(results.right_hand_landmarks.landmark[mp_holistic.HandLandmark.PINKY_TIP].y)
 
             body_mp = np.array(body_list)
+            q_frame.queue.clear() #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             # body_mp = np.reshape(body_mp_temp[np.argwhere(body_mp_temp)], ((num_joints*2,)))
             # body_mp = np.array((n_x, n_y, ls_x, ls_y, rs_x, rs_y))
             # body = np.divide(body_mp, norm)
