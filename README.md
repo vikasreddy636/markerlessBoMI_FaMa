@@ -59,3 +59,43 @@ step 8 --> follow the steps in the GUI (see below after WINDOWS installation ste
 
 # WINDOWS installation steps:
 
+step 0 --> download Visual Studio Code (https://code.visualstudio.com/download)
+
+step 0.1 --> download Python3 directly in Visual Studio Code and/or at this link https://www.python.org/downloads/ (python version >= 3.7)
+
+step 1 --> open a command window and type 
+
+``` 
+    $ cd
+``` 
+
+step 2 --> install pip and virtualenv
+
+``` 
+    $ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+    $ python get-pip.py
+    $ pip install virtualenv
+``` 
+
+step 3 --> create virtualenv (named BoMI) and activate it
+
+``` 
+    $ virtualenv BoMI      OR        $ python3 -m venv BoMI
+    $ BoMI\Scripts\activate
+``` 
+
+step 4 --> enable long path (https://www.howtogeek.com/266621/how-to-make-windows-10-accept-file-paths-over-260-characters/) --> remember to launch regedit as root ("amministratore")
+
+step 5 --> Download all the packages
+
+``` 
+    $ 
+``` 
+
+Step 6 --> Download the repository from the current github page and open it as a project in Visual Studio Code
+
+step 7 --> Set the correct python interpreter in Visual Studio Code (the one of the virtual environment created - BoMI\Bin\python)
+
+step 8 --> eventually [not always] there is the possibility that it is necessary to do the steps described here https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads
+
+
