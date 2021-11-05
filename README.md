@@ -8,7 +8,7 @@ step 0 --> open a terminal and cd to the home folder:
     $ cd
 ``` 
 
-step 1 --> [if not done yet] install pip and venv
+step 1 --> [if not done yet] install pip and venv:
 
 ``` 
     $ sudo apt-get update
@@ -17,12 +17,33 @@ step 1 --> [if not done yet] install pip and venv
     $ sudo apt install python3-venv
 ``` 
 
-step 1 --> create a virtual environment ($ python3 -m venv $path/to/place/env$)
+step 2 --> create a virtual environment called BoMI:
 
-step 2 --> activate virtual enviroment -- $ source $path/to/place/env$/bin/activate
+``` 
+    $ python3 -m venv BoMI
+``` 
 
-step 3 --> upgrade pip -- $ pip install --upgrade pip
+step 3 --> activate virtual enviroment:
 
-step 4 --> pip install git+https://github.com/MoroMatteo/markerlessBoMI_FaMa.git
+``` 
+    $ source BoMI/bin/activate
+``` 
 
-step 5 --> open terminal and run main_reaching.py
+step 4 --> upgrade pip and install all the packages nedded for markerlessBoMI:
+
+``` 
+    $ pip install --upgrade pip
+    $ pip install git+https://github.com/MoroMatteo/markerlessBoMI_FaMa.git
+``` 
+
+step 5 --> istall tkinter:
+
+``` 
+    $ sudo apt install python3-tk
+``` 
+
+step 6 --> clone the github repository:
+
+``` 
+    $ sudo apt install python3-tk
+``` 
