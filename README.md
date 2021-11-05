@@ -45,5 +45,14 @@ step 5 --> istall tkinter:
 step 6 --> clone the github repository:
 
 ``` 
-    $ sudo apt install python3-tk
+    $ git clone https://github.com/MoroMatteo/markerlessBoMI_FaMa.git
 ``` 
+
+step 7 --> cd in the correct folder and run main_reaching.py:
+
+``` 
+    $ cd markerlessBoMI_FaMa/
+    $ python3 main_reaching.py
+``` 
+
+step 8 --> follow the steps in the GUI (common also for WINDOWS)
