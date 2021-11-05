@@ -55,4 +55,7 @@ step 7 --> cd in the correct folder and run main_reaching.py:
     $ python3 main_reaching.py
 ``` 
 
-step 8 --> follow the steps in the GUI (common also for WINDOWS)
+step 8 --> follow the steps in the GUI (see below after WINDOWS installation steps)
+
+# WINDOWS installation steps:
+
