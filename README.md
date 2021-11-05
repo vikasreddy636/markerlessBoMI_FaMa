@@ -63,7 +63,7 @@ step 0 --> download Visual Studio Code (https://code.visualstudio.com/download)
 
 step 0.1 --> download Python3 directly in Visual Studio Code and/or at this link https://www.python.org/downloads/ (python version >= 3.7)
 
-step 1 --> open a command window and type 
+step 1 --> open a command window (terminal) and type 
 
 ``` 
     $ cd
@@ -86,10 +86,19 @@ step 3 --> create virtualenv (named BoMI) and activate it
 
 step 4 --> enable long path (https://www.howtogeek.com/266621/how-to-make-windows-10-accept-file-paths-over-260-characters/) --> remember to launch regedit as root ("amministratore")
 
-step 5 --> Download all the packages
+step 5 --> Upgrade pip and download all the following packages (in the terminal):
 
 ``` 
-    $ 
+    $ pip install --upgrade pip
+    $ pip install numpy
+    $ pip install pandas
+    $ pip install matplotlib
+    $ pip install pygame
+    $ pip install pyautogui
+    $ pip install tensorflow
+    $ pip install mediapipe
+    $ pip install scipy
+    $ pip install sklearn
 ``` 
 
 Step 6 --> Download the repository from the current github page and open it as a project in Visual Studio Code
@@ -98,4 +107,6 @@ step 7 --> Set the correct python interpreter in Visual Studio Code (the one of 
 
 step 8 --> eventually [not always] there is the possibility that it is necessary to do the steps described here https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads
 
+step 9 --> On Visual Studio Code run the file main_reaching.py
 
+# Graphical User Interface
