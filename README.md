@@ -59,11 +59,9 @@ step 8 --> follow the steps in the GUI (see below after WINDOWS installation ste
 
 # WINDOWS installation steps:
 
-step 0 --> download Visual Studio Code (https://code.visualstudio.com/download)
+step 0 --> download Python3 at this link https://www.python.org/downloads/ (python version >= 3.7)
 
-step 0.1 --> download Python3 directly in Visual Studio Code and/or at this link https://www.python.org/downloads/ (python version >= 3.7)
-
-step 1 --> open a command window (terminal) and type 
+step 1 --> open a command window (terminal) as root ("amministratore") and type 
 
 ``` 
     $ cd
@@ -101,12 +99,14 @@ step 5 --> Upgrade pip and download all the following packages (in the terminal)
     $ pip install sklearn
 ``` 
 
-Step 6 --> Download the repository from the current github page and open it as a project in Visual Studio Code
+step 6 --> download Visual Studio Code (https://code.visualstudio.com/download)
 
-step 7 --> Set the correct python interpreter in Visual Studio Code (the one of the virtual environment created - BoMI\Bin\python)
+Step 7 --> Download the repository from the current github page and open it as a project in Visual Studio Code
 
-step 8 --> eventually [not always] there is the possibility that it is necessary to do the steps described here https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads
+step 8 --> Set the correct python interpreter in Visual Studio Code (the one of the virtual environment created - BoMI\Bin\python)
 
-step 9 --> On Visual Studio Code run the file main_reaching.py
+step 9 --> eventually [not always] there is the possibility that it is necessary to do the steps described here https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads
+
+step 10 --> On Visual Studio Code run the file main_reaching.py
 
 # Graphical User Interface
