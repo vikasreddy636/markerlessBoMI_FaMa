@@ -78,7 +78,7 @@ step 2 --> install pip and virtualenv
 step 3 --> create virtualenv (named BoMI) and activate it
 
 ``` 
-    $ virtualenv BoMI      OR        $ python3 -m venv BoMI
+    $ python3 -m venv BoMI
     $ BoMI\Scripts\activate
 ``` 
 
