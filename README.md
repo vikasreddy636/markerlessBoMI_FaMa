@@ -1,6 +1,6 @@
 TESTED with python>=3.7
 
-# UBUNTU and MAC installation steps:
+# UBUNTU installation steps:
 
 step 0 --> open a terminal and cd to the home folder:
 
@@ -56,6 +56,51 @@ step 7 --> cd in the correct folder and run main_reaching.py:
 ``` 
 
 step 8 --> follow the steps in the GUI (see below after WINDOWS installation steps)
+
+# MAC installation steps:
+
+step 0 --> install python (if not already installed, version >=3.7), pip and virtualenv
+
+step 1 --> create a virtual environment called BoMI:
+
+``` 
+    $ python3 -m venv BoMI
+``` 
+
+step 2 --> activate virtual enviroment:
+
+``` 
+    $ source BoMI/bin/activate
+``` 
+
+step 3 --> upgrade pip and install all the packages nedded for markerlessBoMI:
+
+``` 
+    $ pip install --upgrade pip
+    $ pip install git+https://github.com/MoroMatteo/markerlessBoMI_FaMa.git
+``` 
+
+step 4 --> istall tkinter:
+
+``` 
+    $ pip install tk
+``` 
+
+step 5 --> clone the github repository:
+
+``` 
+    $ git clone https://github.com/MoroMatteo/markerlessBoMI_FaMa.git
+``` 
+
+step 6 --> cd in the correct folder and run main_reaching.py:
+
+``` 
+    $ cd markerlessBoMI_FaMa/
+    $ python3 main_reaching.py
+``` 
+
+step 7 --> follow the steps in the GUI (see below after WINDOWS installation steps)
+
 
 # WINDOWS installation steps:
 
