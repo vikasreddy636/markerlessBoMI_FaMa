@@ -42,85 +42,95 @@ class MainApplication(tk.Frame):
         self.num_joints = 0
         self.joints = np.zeros((5, 1))
         self.dr_mode = 'pca'
+        self.font_size = 18
+
+        self.btn_num_joints = Button(parent, text="Select Joints", command=self.select_joints)
+        self.btn_num_joints.config(font=("Arial", self.font_size))
+        self.btn_num_joints.grid(row=0, column=0, columnspan=2, padx=20, pady=30, sticky='nesw')
 
         # set checkboxes for selecting joints
         self.check_nose = BooleanVar()
-        self.check2 = Checkbutton(tk_window, font='Times 18 bold', text="nose", variable=self.check_nose)
-        self.check2.place(relx=0.05, rely=0.1, anchor='sw')
+        self.check1 = Checkbutton(win, text="Nose", variable=self.check_nose)
+        self.check1.config(font=("Arial", self.font_size))
+        self.check1.grid(row=0, column=2, padx=(0, 40), pady=30, sticky='w')
 
         self.check_eyes = BooleanVar()
-        self.check3 = Checkbutton(tk_window, font='Times 18 bold', text="eyes", variable=self.check_eyes)
-        self.check3.place(relx=0.2, rely=0.1, anchor='sw')
+        self.check2 = Checkbutton(win, text="Eyes", variable=self.check_eyes)
+        self.check2.config(font=("Arial", self.font_size))
+        self.check2.grid(row=0, column=3, padx=(0, 40), pady=30, sticky='w')
 
         self.check_shoulders = BooleanVar()
-        self.check4 = Checkbutton(tk_window, font='Times 18 bold', text="shoulders", variable=self.check_shoulders)
-        self.check4.place(relx=0.35, rely=0.1, anchor='sw')
+        self.check3 = Checkbutton(win, text="Shoulders", variable=self.check_shoulders)
+        self.check3.config(font=("Arial", self.font_size))
+        self.check3.grid(row=0, column=4, padx=(0, 30), pady=30, sticky='w')
 
         self.check_forefinger = BooleanVar()
-        self.check5 = Checkbutton(tk_window, font='Times 18 bold', text="right forefinger",
+        self.check4 = Checkbutton(win, text="Right Forefinger",
                                   variable=self.check_forefinger)
-        self.check5.place(relx=0.5, rely=0.1, anchor='sw')
+        self.check4.config(font=("Arial", self.font_size))
+        self.check4.grid(row=0, column=5, padx=(0, 20), pady=30, sticky='w')
 
         self.check_fingers = BooleanVar()
-        self.check6 = Checkbutton(tk_window, font='Times 18 bold', text="fingers", variable=self.check_fingers)
-        self.check6.place(relx=0.7, rely=0.1, anchor='sw')
+        self.check5 = Checkbutton(win, text="Fingers", variable=self.check_fingers)
+        self.check5.config(font=("Arial", self.font_size))
+        self.check5.grid(row=0, column=6, padx=(0, 20), pady=30, sticky='nesw')
 
-        self.btn_num_joints = Button(parent, font='Times 22 bold', text="Select Joints", command=self.select_joints)
-        self.btn_num_joints.pack()
-        self.btn_num_joints.place(relx=0.8, rely=0.1, anchor='sw')
-
-        ##
-        self.btn_calib = Button(parent, font='Times 22 bold', text="Start calibration", command=self.calibration)
-        self.btn_calib.pack()
-        self.btn_calib.place(relx=0.05, rely=0.25, anchor='sw')
+        self.btn_calib = Button(parent, text="Start calibration", command=self.calibration)
         self.btn_calib["state"] = "disabled"
+        self.btn_calib.config(font=("Arial", self.font_size))
+        self.btn_calib.grid(row=1, column=0, columnspan=2, padx=20, pady=(20, 30), sticky='nesw')
         self.calib_duration = 30000
 
-        # set checkboxes for selecting BoMI map
+        # Calibration time remaining
+        self.lbl_calib = Label(win, text='Calibration time: ')
+        self.lbl_calib.config(font=("Arial", self.font_size))
+        self.lbl_calib.grid(row=1, column=2, columnspan=2, pady=(20, 30), sticky='w')
+
+        # BoMI map button and checkboxes
+        self.btn_map = Button(parent, text="Calculate BoMI map", command=self.train_map)
+        self.btn_map["state"] = "disabled"
+        self.btn_map.config(font=("Arial", self.font_size))
+        self.btn_map.grid(row=2, column=0, columnspan=2, padx=20, pady=(20, 30), sticky='nesw')
+
         self.check_pca = BooleanVar(value=True)
-        self.check_pca1 = Checkbutton(tk_window, font='Times 20 bold', text="PCA", variable=self.check_pca)
-        self.check_pca1.place(relx=0.35, rely=0.3, anchor='sw')
+        self.check_pca1 = Checkbutton(win, text="PCA", variable=self.check_pca)
+        self.check_pca1.config(font=("Arial", self.font_size))
+        self.check_pca1.grid(row=2, column=2, padx=(0, 20), pady=(20, 30), sticky='w')
 
         self.check_ae = BooleanVar()
-        self.check_ae1 = Checkbutton(tk_window, font='Times 20 bold', text="Autoencoder", variable=self.check_ae)
-        self.check_ae1.place(relx=0.35, rely=0.35, anchor='sw')
+        self.check_ae1 = Checkbutton(win, text="AE", variable=self.check_ae)
+        self.check_ae1.config(font=("Arial", self.font_size))
+        self.check_ae1.grid(row=2, column=3, padx=(0, 20), pady=(20, 30), sticky='w')
 
         self.check_vae = BooleanVar()
-        self.check_vae1 = Checkbutton(tk_window, font='Times 20 bold', text="Variational AE", variable=self.check_vae)
-        self.check_vae1.place(relx=0.35, rely=0.4, anchor='sw')
+        self.check_vae1 = Checkbutton(win, text="Variational AE", variable=self.check_vae)
+        self.check_vae1.config(font=("Arial", self.font_size))
+        self.check_vae1.grid(row=2, column=4, pady=(20, 30), sticky='w')
 
-        ##
-        self.btn_map = Button(parent, font='Times 22 bold', text="Calculate BoMI map", command=self.train_map)
-        self.btn_map.pack()
-        self.btn_map.place(relx=0.05, rely=0.4, anchor='sw')
-        self.btn_map["state"] = "disabled"
-
-        self.btn_custom = Button(parent, font='Times 22 bold', text="Start customization", command=self.customization)
-        self.btn_custom.pack()
-        self.btn_custom.place(relx=0.05, rely=0.55, anchor='sw')
+        self.btn_custom = Button(parent, text="Start customization", command=self.customization)
         self.btn_custom["state"] = "disabled"
+        self.btn_custom.config(font=("Arial", self.font_size))
+        self.btn_custom.grid(row=3, column=0, columnspan=2, padx=20, pady=(20, 30), sticky='nesw')
 
-        self.btn_start = Button(parent, font='Times 22 bold', text="Start practice", command=self.start)
-        self.btn_start.pack()
-        self.btn_start.place(relx=0.05, rely=0.7, anchor='sw')
+        self.btn_start = Button(parent, text="Start practice", command=self.start)
         self.btn_start["state"] = "disabled"
-
-        self.btn_close = Button(parent, font='Times 22 bold', text="Close", command=parent.destroy)
-        self.btn_close.pack()
-        self.btn_close.place(relx=0.05, rely=0.85, anchor='sw')
+        self.btn_start.config(font=("Arial", self.font_size))
+        self.btn_start.grid(row=4, column=0, columnspan=2, padx=20, pady=(20, 30), sticky='nesw')
 
         # set label for number of target remaining
-        self.lbl_tgt = Label(tk_window, font='Times 22 bold', text='Number of target remaining: ')
-        self.lbl_tgt.place(relx=0.55, rely=0.7, anchor='sw')
-
-        # set label for calibration
-        self.lbl_calib = Label(tk_window, font='Times 22 bold', text='Calibration time remaining: ')
-        self.lbl_calib.place(relx=0.55, rely=0.9, anchor='sw')
+        self.lbl_tgt = Label(win, text='Remaining targets: ')
+        self.lbl_tgt.config(font=("Arial", self.font_size))
+        self.lbl_tgt.grid(row=4, column=2, pady=(20, 30), columnspan=2, sticky='w')
 
         # set checkbox
         self.check_mouse = BooleanVar()
-        self.check1 = Checkbutton(tk_window, font='Times 22 bold', text="Mouse control", variable=self.check_mouse)
-        self.check1.place(relx=0.35, rely=0.5, anchor='sw')
+        self.check_mouse1 = Checkbutton(win, text="Mouse control", variable=self.check_mouse)
+        self.check_mouse1.config(font=("Arial", self.font_size))
+        self.check_mouse1.grid(row=8, column=2, pady=(20, 30), columnspan=2, sticky='w')
+
+        self.btn_close = Button(parent, text="Close", command=parent.destroy,  bg="red")
+        self.btn_close.config(font=("Arial", self.font_size))
+        self.btn_close.grid(row=8, column=0, columnspan=2, padx=20, pady=(20, 30), sticky='nesw')
 
     def select_joints(self):
         nose_enabled = self.check_nose.get()
@@ -221,51 +231,42 @@ class CustomizationApplication(tk.Frame):
         self.dr_mode = dr_mode
 
         self.lbl_rot = Label(parent, font='Times 22 bold', text='Rotation ')
-        self.lbl_rot.pack()
         self.lbl_rot.place(relx=0.1, rely=0.2, anchor='sw')
         self.txt_rot = Text(parent, width=10, height=1)
-        self.txt_rot.pack()
         self.txt_rot.place(relx=0.25, rely=0.18, anchor='sw')
         self.txt_rot.insert("1.0", '0')
 
         self.lbl_gx = Label(parent, font='Times 22 bold', text='Gain x ')
         self.lbl_gx.place(relx=0.1, rely=0.35, anchor='sw')
         self.txt_gx = Text(parent, width=10, height=1)
-        self.txt_gx.pack()
         self.txt_gx.place(relx=0.25, rely=0.33, anchor='sw')
         self.txt_gx.insert("1.0", '1')
 
         self.lbl_gy = Label(parent, font='Times 22 bold', text='Gain y ')
         self.lbl_gy.place(relx=0.5, rely=0.35, anchor='sw')
         self.txt_gy = Text(parent, width=10, height=1)
-        self.txt_gy.pack()
         self.txt_gy.place(relx=0.65, rely=0.33, anchor='sw')
         self.txt_gy.insert("1.0", '1')
 
         self.lbl_ox = Label(parent, font='Times 22 bold', text='Offset x ')
         self.lbl_ox.place(relx=0.1, rely=0.5, anchor='sw')
         self.txt_ox = Text(parent, width=10, height=1)
-        self.txt_ox.pack()
         self.txt_ox.place(relx=0.25, rely=0.48, anchor='sw')
         self.txt_ox.insert("1.0", '0')
 
         self.lbl_oy = Label(parent, font='Times 22 bold', text='Offset y ')
         self.lbl_oy.place(relx=0.5, rely=0.5, anchor='sw')
         self.txt_oy = Text(parent, width=10, height=1)
-        self.txt_oy.pack()
         self.txt_oy.place(relx=0.65, rely=0.48, anchor='sw')
         self.txt_oy.insert("1.0", '0')
 
         self.btn_start = Button(parent, font='Times 22 bold', text="Start", command=self.customization)
-        self.btn_start.pack()
         self.btn_start.place(relx=0.85, rely=0.3, anchor='sw')
 
         self.btn_save = Button(parent, font='Times 22 bold', text="Save parameters", command=self.save_parameters)
-        self.btn_save.pack()
         self.btn_save.place(relx=0.3, rely=0.7, anchor='sw')
 
         self.btn_close = Button(parent, font='Times 22 bold', text="Close", command=parent.destroy)
-        self.btn_close.pack()
         self.btn_close.place(relx=0.3, rely=0.9, anchor='sw')
 
     # functions to retrieve values of textbox programmatically
@@ -370,7 +371,7 @@ def compute_calibration(drPath, calib_duration, lbl_calib, num_joints, joints):
 
         # update time elapsed label
         time_remaining = int((calib_duration - timer_calib.elapsed_time) / 1000)
-        lbl_calib.configure(text='Calibration time remaining ' + str(time_remaining))
+        lbl_calib.configure(text='Calibration time: ' + str(time_remaining))
         lbl_calib.update()
 
         # --- Limit to 50 frames per second
@@ -1010,7 +1011,7 @@ def start_reaching(drPath, check_mouse, lbl_tgt, num_joints, joints, dr_mode):
 
                 # update label with number of targets remaining
                 tgt_remaining = 248 - r.trial + 1
-                lbl_tgt.configure(text='Number of targets remaining ' + str(tgt_remaining))
+                lbl_tgt.configure(text='Remaining targets: ' + str(tgt_remaining))
                 lbl_tgt.update()
 
                 # --- Limit to 50 frames per second
@@ -1139,10 +1140,21 @@ def write_practice_files(r, timer_practice):
 # CODE STARTS HERE
 if __name__ == "__main__":
     # initialize mainApplication tkinter window
-    tk_window = tk.Tk()
-    tk_window.geometry("1366x768")
+    win = tk.Tk()
+    win.title("BoMI Settings")
 
-    MainApplication(tk_window).pack(side="top", fill="both", expand=True)
+    window_width = 900
+    window_height = 520
+
+    screen_width = win.winfo_screenwidth()
+    screen_height = win.winfo_screenheight()
+
+    x_cordinate = int((screen_width / 2) - (window_width / 2))
+    y_cordinate = int((screen_height / 2) - (window_height / 2))
+
+    win.geometry("{}x{}+{}+{}".format(window_width, window_height, x_cordinate, y_cordinate))
+
+    MainApplication(win)
 
     # initiate Tkinter mainloop
-    tk_window.mainloop()
+    win.mainloop()
