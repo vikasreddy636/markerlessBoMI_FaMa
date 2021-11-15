@@ -41,7 +41,7 @@ class MainApplication(tk.Frame):
         self.drPath = ''
         self.num_joints = 0
         self.joints = np.zeros((5, 1))
-        self.dr_mode = 'pca'
+        self.dr_mode = 'ae'
         self.font_size = 18
 
         self.btn_num_joints = Button(parent, text="Select Joints", command=self.select_joints)
@@ -345,7 +345,8 @@ def compute_calibration(drPath, calib_duration, lbl_calib, num_joints, joints):
 
     # start thread for OpenCV. current frame will be appended in a queue in a separate thread
     q_frame = queue.Queue()
-    opencv_thread = Thread(target=get_data_from_camera, args=(cap, q_frame, r))
+    cal = 1 #if cal==1 (meaning during calibration) the opencv thread will display the image
+    opencv_thread = Thread(target=get_data_from_camera, args=(cap, q_frame, r, cal))
     opencv_thread.start()
     print("openCV thread started in calibration.")
 
@@ -360,7 +361,6 @@ def compute_calibration(drPath, calib_duration, lbl_calib, num_joints, joints):
 
     print("main thread: Starting calibration...")
 
-    # -------- Main Program Loop -----------
     while not r.is_terminated:
 
         if timer_calib.elapsed_time > calib_duration:
@@ -640,7 +640,8 @@ def initialize_customization(self, dr_mode, drPath, num_joints, joints):
 
     # start thread for OpenCV. current frame will be appended in a queue in a separate thread
     q_frame = queue.Queue()
-    opencv_thread = Thread(target=get_data_from_camera, args=(cap, q_frame, r))
+    cal = 0
+    opencv_thread = Thread(target=get_data_from_camera, args=(cap, q_frame, r, cal))
     opencv_thread.start()
     print("openCV thread started in customization.")
 
@@ -901,7 +902,8 @@ def start_reaching(drPath, check_mouse, lbl_tgt, num_joints, joints, dr_mode):
 
     # start thread for OpenCV. current frame will be appended in a queue in a separate thread
     q_frame = queue.Queue()
-    opencv_thread = Thread(target=get_data_from_camera, args=(cap, q_frame, r))
+    cal = 0
+    opencv_thread = Thread(target=get_data_from_camera, args=(cap, q_frame, r, cal))
     opencv_thread.start()
     print("openCV thread started in practice.")
 
@@ -971,7 +973,8 @@ def start_reaching(drPath, check_mouse, lbl_tgt, num_joints, joints, dr_mode):
 
             # if mouse checkbox was enabled do not draw the reaching GUI, only change coordinates of the computer cursor
             if mouse_enabled:
-                pyautogui.moveTo(r.crs_x, r.crs_y)
+                pyautogui.FAILSAFE == False
+                pyautogui.moveTo(int(r.crs_x), int(r.crs_y))
             else:
 
                 # Set target position to update the GUI
@@ -1028,7 +1031,7 @@ def start_reaching(drPath, check_mouse, lbl_tgt, num_joints, joints, dr_mode):
     print("openCV object released in practice.")
 
 
-def get_data_from_camera(cap, q_frame, r):
+def get_data_from_camera(cap, q_frame, r, cal):
     '''
     function that runs in the thread to capture current frame and put it into the queue
     :param cap: object of OpenCV class
@@ -1040,6 +1043,8 @@ def get_data_from_camera(cap, q_frame, r):
         if not r.is_paused:
             ret, frame = cap.read()
             q_frame.put(frame)
+            #if cal == 1:
+            #    cv2.imshow('current frame', frame)
     print('OpenCV thread terminated.')
 
 
@@ -1143,7 +1148,7 @@ if __name__ == "__main__":
     win = tk.Tk()
     win.title("BoMI Settings")
 
-    window_width = 900
+    window_width = 1200
     window_height = 520
 
     screen_width = win.winfo_screenwidth()
