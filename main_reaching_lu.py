@@ -701,9 +701,9 @@ def cursor_customization(self, r, filter_curs, holistic, cap, map, rot, scale, o
     clock = pygame.time.Clock()
 
     # Open a new window
-    # size = (r.width, r.height)
-    # screen = pygame.display.set_mode(size)
-    screen = pygame.display.toggle_fullscreen()
+    size = (r.width, r.height)
+    screen = pygame.display.set_mode(size)
+    # screen = pygame.display.toggle_fullscreen()
 
     # -------- Main Program Loop -----------
     while not r.is_terminated:
@@ -870,7 +870,7 @@ def start_reaching(drPath, check_mouse, lbl_tgt, num_joints, joints, dr_mode):
     # Open a new window
     size = (r.width, r.height)
     screen = pygame.display.set_mode(size)
-    #screen = pygame.display.toggle_fullscreen()
+    # screen = pygame.display.toggle_fullscreen()
 
     # The clock will be used to control how fast the screen updates
     clock = pygame.time.Clock()
