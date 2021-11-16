@@ -75,7 +75,7 @@ class MainApplication(tk.Frame):
         self.check5.config(font=("Arial", self.font_size))
         self.check5.grid(row=0, column=6, padx=(0, 20), pady=30, sticky='nesw')
 
-        self.btn_calib = Button(parent, text="Start calibration", command=self.calibration)
+        self.btn_calib = Button(parent, text="Calibration", command=self.calibration)
         self.btn_calib["state"] = "disabled"
         self.btn_calib.config(font=("Arial", self.font_size))
         self.btn_calib.grid(row=1, column=0, columnspan=2, padx=20, pady=(20, 30), sticky='nesw')
@@ -87,7 +87,7 @@ class MainApplication(tk.Frame):
         self.lbl_calib.grid(row=1, column=2, columnspan=2, pady=(20, 30), sticky='w')
 
         # BoMI map button and checkboxes
-        self.btn_map = Button(parent, text="Calculate BoMI map", command=self.train_map)
+        self.btn_map = Button(parent, text="Calculate BoMI Map", command=self.train_map)
         self.btn_map["state"] = "disabled"
         self.btn_map.config(font=("Arial", self.font_size))
         self.btn_map.grid(row=2, column=0, columnspan=2, padx=20, pady=(20, 30), sticky='nesw')
@@ -107,12 +107,12 @@ class MainApplication(tk.Frame):
         self.check_vae1.config(font=("Arial", self.font_size))
         self.check_vae1.grid(row=2, column=4, pady=(20, 30), sticky='w')
 
-        self.btn_custom = Button(parent, text="Start customization", command=self.customization)
+        self.btn_custom = Button(parent, text="Customization", command=self.customization)
         self.btn_custom["state"] = "disabled"
         self.btn_custom.config(font=("Arial", self.font_size))
         self.btn_custom.grid(row=3, column=0, columnspan=2, padx=20, pady=(20, 30), sticky='nesw')
 
-        self.btn_start = Button(parent, text="Start practice", command=self.start)
+        self.btn_start = Button(parent, text="Practice", command=self.start)
         self.btn_start["state"] = "disabled"
         self.btn_start.config(font=("Arial", self.font_size))
         self.btn_start.grid(row=4, column=0, columnspan=2, padx=20, pady=(20, 30), sticky='nesw')
@@ -128,7 +128,7 @@ class MainApplication(tk.Frame):
         self.check_mouse1.config(font=("Arial", self.font_size))
         self.check_mouse1.grid(row=8, column=2, pady=(20, 30), columnspan=2, sticky='w')
 
-        self.btn_close = Button(parent, text="Close", command=parent.destroy,  bg="red")
+        self.btn_close = Button(parent, text="Close", command=parent.destroy, bg="red")
         self.btn_close.config(font=("Arial", self.font_size))
         self.btn_close.grid(row=8, column=0, columnspan=2, padx=20, pady=(20, 30), sticky='nesw')
 
@@ -196,6 +196,7 @@ class MainApplication(tk.Frame):
             # open customization window
             self.newWindow = tk.Toplevel(self.master)
             self.newWindow.geometry("1000x500")
+            self.newWindow.title("Customization")
             self.app = CustomizationApplication(self.newWindow, self, drPath=self.drPath, num_joints=self.num_joints,
                                                 joints=self.joints, dr_mode=self.dr_mode)
         else:
@@ -229,45 +230,59 @@ class CustomizationApplication(tk.Frame):
         self.num_joints = num_joints
         self.joints = joints
         self.dr_mode = dr_mode
+        self.font_size = 18
 
-        self.lbl_rot = Label(parent, font='Times 22 bold', text='Rotation ')
-        self.lbl_rot.place(relx=0.1, rely=0.2, anchor='sw')
+        self.lbl_rot = Label(parent, text='Rotation ')
+        self.lbl_rot.config(font=("Arial", self.font_size))
+        self.lbl_rot.grid(column=0, row=0, padx=(300, 0), pady=(40, 20), sticky='w')
         self.txt_rot = Text(parent, width=10, height=1)
-        self.txt_rot.place(relx=0.25, rely=0.18, anchor='sw')
+        self.txt_rot.config(font=("Arial", self.font_size))
+        self.txt_rot.grid(column=1, row=0, pady=(40, 20))
         self.txt_rot.insert("1.0", '0')
 
-        self.lbl_gx = Label(parent, font='Times 22 bold', text='Gain x ')
-        self.lbl_gx.place(relx=0.1, rely=0.35, anchor='sw')
+        self.lbl_gx = Label(parent, text='Gain x ')
+        self.lbl_gx.config(font=("Arial", self.font_size))
+        self.lbl_gx.grid(column=0, row=1, padx=(300, 0), pady=(40, 20), sticky='w')
         self.txt_gx = Text(parent, width=10, height=1)
-        self.txt_gx.place(relx=0.25, rely=0.33, anchor='sw')
+        self.txt_gx.config(font=("Arial", self.font_size))
+        self.txt_gx.grid(column=1, row=1, pady=(40, 20))
         self.txt_gx.insert("1.0", '1')
 
-        self.lbl_gy = Label(parent, font='Times 22 bold', text='Gain y ')
-        self.lbl_gy.place(relx=0.5, rely=0.35, anchor='sw')
+        self.lbl_gy = Label(parent, text='Gain y ')
+        self.lbl_gy.config(font=("Arial", self.font_size))
+        self.lbl_gy.grid(column=0, row=2, padx=(300, 0), pady=(40, 20), sticky='w')
         self.txt_gy = Text(parent, width=10, height=1)
-        self.txt_gy.place(relx=0.65, rely=0.33, anchor='sw')
+        self.txt_gy.config(font=("Arial", self.font_size))
+        self.txt_gy.grid(column=1, row=2, pady=(40, 20))
         self.txt_gy.insert("1.0", '1')
 
-        self.lbl_ox = Label(parent, font='Times 22 bold', text='Offset x ')
-        self.lbl_ox.place(relx=0.1, rely=0.5, anchor='sw')
+        self.lbl_ox = Label(parent, text='Offset x ')
+        self.lbl_ox.config(font=("Arial", self.font_size))
+        self.lbl_ox.grid(column=0, row=3, padx=(300, 0), pady=(40, 20), sticky='w')
         self.txt_ox = Text(parent, width=10, height=1)
-        self.txt_ox.place(relx=0.25, rely=0.48, anchor='sw')
+        self.txt_ox.config(font=("Arial", self.font_size))
+        self.txt_ox.grid(column=1, row=3, pady=(40, 20))
         self.txt_ox.insert("1.0", '0')
 
-        self.lbl_oy = Label(parent, font='Times 22 bold', text='Offset y ')
-        self.lbl_oy.place(relx=0.5, rely=0.5, anchor='sw')
+        self.lbl_oy = Label(parent, text='Offset y ')
+        self.lbl_oy.config(font=("Arial", self.font_size))
+        self.lbl_oy.grid(column=0, row=4, padx=(300, 0), pady=(40, 20), sticky='w')
         self.txt_oy = Text(parent, width=10, height=1)
-        self.txt_oy.place(relx=0.65, rely=0.48, anchor='sw')
+        self.txt_oy.config(font=("Arial", self.font_size))
+        self.txt_oy.grid(column=1, row=4, pady=(40, 20))
         self.txt_oy.insert("1.0", '0')
 
-        self.btn_start = Button(parent, font='Times 22 bold', text="Start", command=self.customization)
-        self.btn_start.place(relx=0.85, rely=0.3, anchor='sw')
+        self.btn_save = Button(parent, text="Save parameters", command=self.save_parameters)
+        self.btn_save.config(font=("Arial", self.font_size))
+        self.btn_save.grid(column=2, row=1, sticky='nesw', padx=(80, 0), pady=(40, 20))
 
-        self.btn_save = Button(parent, font='Times 22 bold', text="Save parameters", command=self.save_parameters)
-        self.btn_save.place(relx=0.3, rely=0.7, anchor='sw')
+        self.btn_start = Button(parent, text="Start", command=self.customization)
+        self.btn_start.config(font=("Arial", self.font_size))
+        self.btn_start.grid(column=2, row=2, sticky='nesw', padx=(80, 0), pady=(40, 20))
 
-        self.btn_close = Button(parent, font='Times 22 bold', text="Close", command=parent.destroy)
-        self.btn_close.place(relx=0.3, rely=0.9, anchor='sw')
+        self.btn_close = Button(parent, text="Close", command=parent.destroy, bg='red')
+        self.btn_close.config(font=("Arial", self.font_size))
+        self.btn_close.grid(column=2, row=3, sticky='nesw', padx=(80, 0), pady=(40, 20))
 
     # functions to retrieve values of textbox programmatically
     def retrieve_txt_rot(self):
@@ -345,7 +360,7 @@ def compute_calibration(drPath, calib_duration, lbl_calib, num_joints, joints):
 
     # start thread for OpenCV. current frame will be appended in a queue in a separate thread
     q_frame = queue.Queue()
-    cal = 1 #if cal==1 (meaning during calibration) the opencv thread will display the image
+    cal = 1  # if cal==1 (meaning during calibration) the opencv thread will display the image
     opencv_thread = Thread(target=get_data_from_camera, args=(cap, q_frame, r, cal))
     opencv_thread.start()
     print("openCV thread started in calibration.")
@@ -686,9 +701,9 @@ def cursor_customization(self, r, filter_curs, holistic, cap, map, rot, scale, o
     clock = pygame.time.Clock()
 
     # Open a new window
-    size = (r.width, r.height)
-    screen = pygame.display.set_mode(size)
-    # screen = pygame.display.toggle_fullscreen()
+    # size = (r.width, r.height)
+    # screen = pygame.display.set_mode(size)
+    screen = pygame.display.toggle_fullscreen()
 
     # -------- Main Program Loop -----------
     while not r.is_terminated:
@@ -855,7 +870,7 @@ def start_reaching(drPath, check_mouse, lbl_tgt, num_joints, joints, dr_mode):
     # Open a new window
     size = (r.width, r.height)
     screen = pygame.display.set_mode(size)
-    # screen = pygame.display.toggle_fullscreen()
+    #screen = pygame.display.toggle_fullscreen()
 
     # The clock will be used to control how fast the screen updates
     clock = pygame.time.Clock()
@@ -944,7 +959,7 @@ def start_reaching(drPath, check_mouse, lbl_tgt, num_joints, joints, dr_mode):
             r.body = np.copy(body)
 
             # apply BoMI forward map to body vector to obtain cursor position.
-            r.crs_x, r.crs_y = reaching_functions.update_cursor_position\
+            r.crs_x, r.crs_y = reaching_functions.update_cursor_position \
                 (r.body, map, rot_dr, scale_dr, off_dr, rot_custom, scale_custom, off_custom)
 
             # # Moving the paddles when the user uses the arrow keys
@@ -973,16 +988,13 @@ def start_reaching(drPath, check_mouse, lbl_tgt, num_joints, joints, dr_mode):
 
             # if mouse checkbox was enabled do not draw the reaching GUI, only change coordinates of the computer cursor
             if mouse_enabled:
-                pyautogui.FAILSAFE == False
+                pyautogui.FAILSAFE = False
                 pyautogui.moveTo(int(r.crs_x), int(r.crs_y))
             else:
-
                 # Set target position to update the GUI
                 reaching_functions.set_target_reaching(r)
-
                 # First, clear the screen to black. In between screen.fill and pygame.display.flip() all the draw
                 screen.fill(BLACK)
-
                 # Do not show the cursor in the blind trials when the cursor is outside the home target
                 if not r.is_blind:
                     # draw cursor
@@ -1043,7 +1055,7 @@ def get_data_from_camera(cap, q_frame, r, cal):
         if not r.is_paused:
             ret, frame = cap.read()
             q_frame.put(frame)
-            #if cal == 1:
+            # if cal == 1:
             #    cv2.imshow('current frame', frame)
     print('OpenCV thread terminated.')
 
@@ -1104,7 +1116,7 @@ def mediapipe_forwardpass(holistic, mp_holistic, lock, q_frame, r, num_joints, j
                 body_list.append(results.right_hand_landmarks.landmark[mp_holistic.HandLandmark.PINKY_TIP].y)
 
             body_mp = np.array(body_list)
-            q_frame.queue.clear() #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            q_frame.queue.clear()  # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             # body_mp = np.reshape(body_mp_temp[np.argwhere(body_mp_temp)], ((num_joints*2,)))
             # body_mp = np.array((n_x, n_y, ls_x, ls_y, rs_x, rs_y))
             # body = np.divide(body_mp, norm)
