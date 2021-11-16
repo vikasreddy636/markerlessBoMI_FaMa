@@ -666,13 +666,140 @@ def initialize_customization(self, dr_mode, drPath, num_joints, joints):
     mediapipe_thread.start()
     print("mediapipe thread started in customization.")
 
-    # start thread for cursor control. in customization this is needed to programmatically change textbox values
-    cursor_thread = Thread(target=cursor_customization,
-                           args=(self, r, filter_curs, holistic, cap, map, rot, scale, off))
-    cursor_thread.start()
-    print("cursor control thread started in customization.")
+    # Define some colors
+    BLACK = (0, 0, 0)
+    GREEN = (0, 255, 0)
+    CURSOR = (0.19 * 255, 0.65 * 255, 0.4 * 255)
 
+    pygame.init()
 
+    # The clock will be used to control how fast the screen updates
+    clock = pygame.time.Clock()
+
+    # Open a new window
+    size = (r.width, r.height)
+    screen = pygame.display.set_mode(size)
+    # screen = pygame.display.toggle_fullscreen()
+
+    # -------- Main Program Loop -----------
+    while not r.is_terminated:
+        # --- Main event loop
+        for event in pygame.event.get():  # User did something
+            if event.type == pygame.QUIT:  # If user clicked close
+                r.is_terminated = True  # Flag that we are done so we exit this loop
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_x:  # Pressing the x Key will quit the game
+                    r.is_terminated = True
+                if event.key == pygame.K_SPACE:  # Pressing the space Key will click the mouse
+                    pyautogui.click(r.crs_x, r.crs_y)
+
+        if not r.is_paused:
+            # Copy old cursor position
+            r.old_crs_x = r.crs_x
+            r.old_crs_y = r.crs_y
+
+            # get current value of body
+            r.body = np.copy(body)
+
+            # apply BoMI forward map to body vector to obtain cursor position
+            r.crs_x, r.crs_y = reaching_functions.update_cursor_position_custom(r.body, map, rot, scale, off)
+
+            # Apply extra customization according to textbox values (try/except allows to catch invalid inputs)
+            try:
+                rot_custom = int(self.retrieve_txt_rot())
+            except:
+                rot_custom = 0
+            try:
+                gx_custom = float(self.retrieve_txt_gx())
+            except:
+                gx_custom = 1.0
+            try:
+                gy_custom = float(self.retrieve_txt_gy())
+            except:
+                gy_custom = 1.0
+            try:
+                ox_custom = int(self.retrieve_txt_ox())
+            except:
+                ox_custom = 0
+            try:
+                oy_custom = int(self.retrieve_txt_oy())
+            except:
+                oy_custom = 0
+
+            # Applying rotation
+            r.crs_x = r.crs_x * np.cos(np.pi / 180 * rot_custom) - r.crs_y * np.sin(np.pi / 180 * rot_custom)
+            r.crs_y = r.crs_x * np.sin(np.pi / 180 * rot_custom) + r.crs_y * np.cos(np.pi / 180 * rot_custom)
+            # Applying scale
+            r.crs_x = r.crs_x * gx_custom
+            r.crs_y = r.crs_y * gy_custom
+            # Applying offset
+            r.crs_x = r.crs_x + ox_custom
+            r.crs_y = r.crs_y + oy_custom
+
+            # Moving the paddles when the user uses the arrow keys (in case cursor gets stuck)
+            # keys = pygame.key.get_pressed()
+            # if keys[pygame.K_w]:
+            #     r.crs_y -= 75
+            # if keys[pygame.K_a]:
+            #     r.crs_x -= 75
+            # if keys[pygame.K_s]:
+            #     r.crs_y += 75
+            # if keys[pygame.K_d]:
+            #     r.crs_x += 75
+
+            # Check if the crs is bouncing against any of the 4 walls:
+
+            # Limit cursor workspace
+            if r.crs_x >= r.width:
+                r.crs_x = r.width
+            if r.crs_x <= 0:
+                r.crs_x = 0
+            if r.crs_y >= r.height:
+                r.crs_y = 0
+            if r.crs_y <= 0:
+                r.crs_y = r.height
+
+            # Filter the cursor
+            r.crs_x, r.crs_y = reaching_functions.filter_cursor(r, filter_curs)
+
+            # Set target position to update the GUI
+            reaching_functions.set_target_reaching_customization(r)
+
+            # First, clear the screen to black. In between screen.fill and pygame.display.flip() all the draw
+            screen.fill(BLACK)
+
+            # draw cursor
+            pygame.draw.circle(screen, CURSOR, (int(r.crs_x), int(r.crs_y)), r.crs_radius)
+
+            # draw each test target
+            for i in range(8):
+                tgt_x = r.tgt_x_list[r.list_tgt[i]]
+                tgt_y = r.tgt_y_list[r.list_tgt[i]]
+                pygame.draw.circle(screen, GREEN, (int(tgt_x), int(tgt_y)), r.tgt_radius, 2)
+
+            # --- update the screen with what we've drawn.
+            pygame.display.flip()
+
+            # --- Limit to 50 frames per second
+            clock.tick(50)
+
+    # Once we have exited the main program loop, stop the game engine and release the capture
+    pygame.quit()
+    print("game engine object released in customization.")
+    holistic.close()
+    print("pose estimation object released terminated in customization.")
+    cap.release()
+    cv2.destroyAllWindows()
+    print("openCV object released in customization.")
+
+    ## start thread for cursor control. in customization this is needed to programmatically change textbox values
+    ## Uncomment below if there is a thread and not the customization here above
+    #cursor_thread = Thread(target=cursor_customization,
+    #                       args=(self, r, filter_curs, holistic, cap, map, rot, scale, off))
+    #cursor_thread.start()
+    #print("cursor control thread started in customization.")
+
+''' 
 def cursor_customization(self, r, filter_curs, holistic, cap, map, rot, scale, off):
     """
     Function that runs in a separate thread when customization is started. A separate thread allows to concurrently
@@ -815,7 +942,7 @@ def cursor_customization(self, r, filter_curs, holistic, cap, map, rot, scale, o
     cap.release()
     cv2.destroyAllWindows()
     print("openCV object released in customization.")
-
+'''
 
 def save_parameters(self, drPath):
     """
