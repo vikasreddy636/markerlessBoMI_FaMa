@@ -8,10 +8,10 @@ class Reaching:
     def __init__(self):
         # pygame parameters
         self._width = 1200
-        self._height = 640
+        self._height = 800
         self._crs_radius = 15
-        self._tgt_radius = 45
-        self._tgt_dist = 200
+        self._tgt_radius = 40
+        self._tgt_dist = 275
 
         # Reaching parameters (from c# Baseform)
         self._tot_blocks = 11
