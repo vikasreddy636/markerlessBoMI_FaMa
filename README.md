@@ -164,6 +164,7 @@ step 10 --> On Visual Studio Code run the file main_reaching.py
 
 # Graphical User Interface
 
+[**READ CARFULLY UNTIL THE END**] 
 If you run the script main_reaching.py, you should see something like this:
 
 ![BoMI_0](https://user-images.githubusercontent.com/75327840/142367411-f78e3f09-481a-4edd-95c4-f8a23778b0e2.png)
@@ -209,7 +210,9 @@ Figure 7. Window to tune the customization parameters.
 **Step 5: Practice**. When you finish with the customization step, you can press the button **Pratice** and a window as the one in Figure 8 will appear. At this point you will start the **reaching task**. 
 **[IMPORTANT!! If for any reason you are stuck and you want to close the application press the key 'p' in your keyboard and it will pause the program]**
 
-The reaching 
+The reaching task is composed of many steps (almost 300, you will take ~45 minutes to finish it and you should do it without interrupting). You should move your joints in order to move the green dot (virtual cursor) in order to reach the targets that appear in the screen. Once reached, the targets color become yellow. You have to stay inside the target for some milliseconds and then you will see another target appearing somewhere in the screen. Keep going until the end. Two events could happen: (i) sometimes the virtual cursor disappear for some seconds (~15s); you should try to reach the target as always but without having the visual feedback of where the virtual cursor is. If you can not reach it before ~15s the virtual cursor will appear again and you will be able to reach the target with the visual feedback. (ii) After some trial, periodically, the virtual cursor will freeze in order to give you the possibility to do a small break. If you want to continue the task, press the key 'p' on your keyboard.
+
+**[VERY IMPORTANT, for robotics students!! At the end of the practice, inside the folder markerlessBoMI_FaMa, you will see that a folder called 'Practice' will be created. Inside it you will find a file called 'PracticeLog.txt'. Rename it if you want to do multiple practice.]** Anyway, at the end of each practice (the ones during which you reach the very end) rename the file 'PracticeLog.txt' with your 'Name_Surname.txt' and send it to matteo.moro@edu.unige.it. In the email you should indicate the joints you selected for the task (the easiest ones are nose and/or shoulders) and the specifics of the computer where you performed it (CPU, if you have a GPU, etc ....).
 
 ![BoMI_8](https://user-images.githubusercontent.com/75327840/142374722-5f860b01-58fd-4293-882d-bfee32afd507.png)
 
