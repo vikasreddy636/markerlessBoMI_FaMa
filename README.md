@@ -170,8 +170,7 @@ If you run the script main_reaching.py, you should see something like this:
 
 *Figure 1. Markerless BoMI GUI.
 
-**Select Joints**. As you can notice, only the button **Select Joints** is available. You should select the anatomical joints you want to use to control the cursor (click on the corresponding checkbox, try for example **Nose** and **Shouders**), and, then, press **Select Joints**:
-
+**Step 1: Select Joints**. As you can notice, only the button **Select Joints** is available. You should select the anatomical joints you want to use to control the cursor (click on the corresponding checkbox, try for example **Nose** and **Shouders**), and, then, press **Select Joints**:
 
 ![BoMI_1](https://user-images.githubusercontent.com/75327840/142368575-1152f407-1e94-474d-acee-292905ff7db8.png)
 
@@ -179,4 +178,12 @@ If you run the script main_reaching.py, you should see something like this:
 
 After this step, also the others buttons should be visible. To complete the task, you have to follow the following steps **in order**.
 
-**Calibration**. 
+**Step 2: Calibration**. During the calibration step, you should move the anatomical points you selected during the previous step facing your webcam. Make sure only you are visible from the webcam with nobody else (only one person should be visible). Press the button **Calibration**: a new window will pop up (see Figure 3). Press **ok** and start moving your joints facing the webcam for 30 seconds (a countdown as in Figure 4 will appear). **During the calibration try to cover with your movements all the space seen by your webcam**. The calibration is an important step and it is possible that you have to do it multiple times.
+
+![BoMI_3](https://user-images.githubusercontent.com/75327840/142370385-1e202942-34ce-4f54-8f0b-eb73aa30f8cc.png)
+
+Figure 3. Window that will pop up after pressing the button **Calibration**. Press **ok** and start moving your selected joints.
+
+![BoMI_4](https://user-images.githubusercontent.com/75327840/142370626-20db02ec-17ff-48bf-bf3b-af29bd5de480.png)
+
+Figure 4. Countdown during calibration. You should move for 30 seconds.
