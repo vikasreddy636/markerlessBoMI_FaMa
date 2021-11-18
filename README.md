@@ -168,43 +168,36 @@ step 10 --> On Visual Studio Code run the file main_reaching.py
 If you run the script main_reaching.py, you should see something like this:
 
 ![BoMI_0](https://user-images.githubusercontent.com/75327840/142367411-f78e3f09-481a-4edd-95c4-f8a23778b0e2.png)
-
-*Figure 1. Markerless BoMI GUI.
+Figure 1. Markerless BoMI GUI.
 
 **Step 1: Select Joints**. As you can notice, only the button **Select Joints** is available. You should select the anatomical joints you want to use to control the cursor (click on the corresponding checkbox, try for example **Nose** and **Shouders**), and, then, press **Select Joints**:
 
 ![BoMI_1](https://user-images.githubusercontent.com/75327840/142368575-1152f407-1e94-474d-acee-292905ff7db8.png)
-
-*Figure 2. Select the anatomical points you want to use to control the cursor and then press Select Joints.
+Figure 2. Select the anatomical points you want to use to control the cursor and then press Select Joints.
 
 After this step, also the others buttons should be visible. To complete the task, you have to follow the following steps **in order**.
 
 **Step 2: Calibration**. During the calibration step, you should move the anatomical points you selected during the previous step facing your webcam. Make sure only you are visible from the webcam with nobody else (only one person should be visible). Press the button **Calibration**: a new window will pop up (see Figure 3). Press **ok** and start moving your joints facing the webcam for 30 seconds (a countdown as in Figure 4 will appear). **During the calibration try to cover with your movements all the space seen by your webcam**. The calibration is an important step and it is possible that you have to do it multiple times.
 
 ![BoMI_3](https://user-images.githubusercontent.com/75327840/142370385-1e202942-34ce-4f54-8f0b-eb73aa30f8cc.png)
-
 Figure 3. Window that will pop up after pressing the button **Calibration**. Press **ok** and start moving your selected joints.
 
 ![BoMI_4](https://user-images.githubusercontent.com/75327840/142370626-20db02ec-17ff-48bf-bf3b-af29bd5de480.png)
-
 Figure 4. Countdown during calibration. You should move for 30 seconds.
 
 **Step 3: Calculate BoMI Map**. **Before** pressing the button, select the checkbox correspondent to the dimensionality reduction algorithm you want to use. By default 'PCA' is selected (see Figure 2). If you want to change it, deselect the checkbox near 'PCA' and select another one. We suggest to use **Variational AE** (variational autoencoder) as in Figure 5. **After** that, you can press the button **Calculate BoMI Map**. A new window similar to the one in Figure 3 will pop up. Press **ok** and **wait** some seconds (needed to calculate the BoMI Map - have a look at the terminal, you should see when the process is done.
 
 ![BoMI_5](https://user-images.githubusercontent.com/75327840/142371433-4a5e15af-4301-4702-8ab4-746d46aa2f0e.png)
-
 Figure 5. Select Variational AE and, then, press Calculate BoMI Map.
 
 **Step 4: Customization**. When the Calculate BoMI Map step is done (look at the terminal), you can press the button **Customization**. A window as the one shown in Figure 6 should pop up.
 
 ![BoMI_6](https://user-images.githubusercontent.com/75327840/142372287-21feb4e8-2e72-4f97-acb8-75aa4648dd1c.png)
-
 Figure 6. Window that will pop up after pressing the **Customization** button.
 
 At this point you can press the button **Start**. A window as the one in Figure 7 should appear. **If you move the joints selected, you should see the small green dot (virtual cursor) moving**. The default parameters suggested in the window (Figure 6) should be fine to cover all the space. If yes, close the window in Figure 7 and press **Save Parameters**. If you notice some problems (for example you can not reach with your movements some target of the window in Figure 7 with the green virtual cursor), you have to close the window in Figure 7, change the parameters in the Figure 6 and then press the button **Start**. You should repet this process until all the targets of the window in Figure 7 are reachable. At the end press **Save Parameters**.
 
 ![BoMI_7](https://user-images.githubusercontent.com/75327840/142373973-f321173b-e6fd-4f0c-8aee-1ace747f4785.png)
-
 Figure 7. Window to tune the customization parameters.
 
 **Step 5: Practice**. When you finish with the customization step, you can press the button **Pratice** and a window as the one in Figure 8 will appear. At this point you will start the **reaching task**. 
@@ -215,5 +208,4 @@ The reaching task is composed of many steps (almost 300, you will take ~45 minut
 **[VERY IMPORTANT, for robotics students!! At the end of the practice, inside the folder markerlessBoMI_FaMa, you will see that a folder called 'Practice' will be created. Inside it you will find a file called 'PracticeLog.txt'. Rename it if you want to do multiple practice.]** Anyway, at the end of each practice (the ones during which you reach the very end) rename the file 'PracticeLog.txt' with your 'Name_Surname.txt' and send it to matteo.moro@edu.unige.it. In the email you should indicate the joints you selected for the task (the easiest ones are nose and/or shoulders), the dimensionality reduction algorithm you used (PCA, AE, Variational AE) and the specifics of the computer where you performed it (CPU, if you have a GPU, etc ....).
 
 ![BoMI_8](https://user-images.githubusercontent.com/75327840/142374722-5f860b01-58fd-4293-882d-bfee32afd507.png)
-
 Figure 8. Start the reaching task.
