@@ -1,6 +1,10 @@
-TESTED with python>=3.7
+# Abstract
+
+
 
 # UBUNTU installation steps:
+
+**TESTED with python>=3.7**
 
 step 0 --> open a terminal and cd to the home folder:
 
@@ -59,7 +63,9 @@ step 8 --> follow the steps in the GUI (see below after WINDOWS installation ste
 
 # MAC installation steps:
 
-step 0 --> install python (if not already installed, version >=3.7), pip and virtualenv
+**TESTED with python>=3.7**
+
+step 0 --> install python (if not already installed), pip and virtualenv
 
 step 1 --> create a virtual environment called BoMI:
 
@@ -104,7 +110,9 @@ step 7 --> follow the steps in the GUI (see below after WINDOWS installation ste
 
 # WINDOWS installation steps:
 
-step 0 --> download Python3 at this link https://www.python.org/downloads/ (python version >= 3.7)
+**TESTED with python>=3.7**
+
+step 0 --> download Python3 at this link https://www.python.org/downloads/ 
 
 step 1 --> enable long path (https://www.howtogeek.com/266621/how-to-make-windows-10-accept-file-paths-over-260-characters/) --> remember to launch regedit as root ("amministratore")
 
@@ -160,5 +168,15 @@ If you run the script main_reaching.py, you should see something like this:
 
 ![BoMI_0](https://user-images.githubusercontent.com/75327840/142367411-f78e3f09-481a-4edd-95c4-f8a23778b0e2.png)
 
-*Figure 1. Markerless BoMI GUI
+*Figure 1. Markerless BoMI GUI.
 
+**Select Joints**. As you can notice, only the button **Select Joints** is available. You should select the anatomical joints you want to use to control the cursor (click on the corresponding checkbox, try for example **Nose** and **Shouders**), and, then, press **Select Joints**:
+
+
+![BoMI_1](https://user-images.githubusercontent.com/75327840/142368575-1152f407-1e94-474d-acee-292905ff7db8.png)
+
+*Figure 2. Select the anatomical points you want to use to control the cursor and then press Select Joints.
+
+After this step, also the others buttons should be visible. To complete the task, you have to follow the following steps **in order**.
+
+**Calibration**. 
