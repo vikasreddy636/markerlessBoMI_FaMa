@@ -187,3 +187,17 @@ Figure 3. Window that will pop up after pressing the button **Calibration**. Pre
 ![BoMI_4](https://user-images.githubusercontent.com/75327840/142370626-20db02ec-17ff-48bf-bf3b-af29bd5de480.png)
 
 Figure 4. Countdown during calibration. You should move for 30 seconds.
+
+**Step 3: Calculate BoMI Map**. **Before** pressing the button, select the checkbox correspondent to the dimensionality reduction algorithm you want to use. By default 'PCA' is selected (see Figure 2). If you want to change it, deselect the checkbox near 'PCA' and select another one. We suggest to use **Variational AE** (variational autoencoder) as in Figure 5. **After** that, you can press the button **Calculate BoMI Map**. A new window similar to the one in Figure 3 will pop up. Press **ok** and **wait** some seconds (needed to calculate the BoMI Map - have a look at the terminal, you should see when the process is done.
+
+![BoMI_5](https://user-images.githubusercontent.com/75327840/142371433-4a5e15af-4301-4702-8ab4-746d46aa2f0e.png)
+
+Figure 5. Select Variational AE and, then, press Calculate BoMI Map.
+
+**Step 4: Customization**. When the Calculate BoMI Map step is done (look at the terminal), you can press the button **Customization**. A window as the one shown in Figure 6 should pop up.
+
+![BoMI_6](https://user-images.githubusercontent.com/75327840/142372287-21feb4e8-2e72-4f97-acb8-75aa4648dd1c.png)
+
+Figure 6. Window that will pop up after pressing the **Customization** button.
+
+A
