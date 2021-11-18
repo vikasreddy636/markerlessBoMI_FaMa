@@ -200,4 +200,9 @@ Figure 5. Select Variational AE and, then, press Calculate BoMI Map.
 
 Figure 6. Window that will pop up after pressing the **Customization** button.
 
-A
+At this point you can press the button **Start**. A window as the one in Figure 7 should appear. **If you move the joints selected, you should see the green virtual curson moving**. The default parameters suggested in the window (Figure 6) should be fine to cover all the space. If yes, close the window in Figure 7 and press **Save Parameters**. If you notice some problems (for example you can not reach with your movements some target of the window in Figure 7 with the green virtual cursor), you have to close the window in Figure 7, change the parameters in the Figure 6 and then press the button **Start**. You should repet this process until all the targets of the window in Figure 7 are reachable. At the end press **Save Parameters**.
+
+![BoMI_7](https://user-images.githubusercontent.com/75327840/142373973-f321173b-e6fd-4f0c-8aee-1ace747f4785.png)
+
+Figure 7. Window to tune the customization parameters.
+
