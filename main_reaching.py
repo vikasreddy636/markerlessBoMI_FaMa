@@ -211,7 +211,7 @@ class MainApplication(tk.Frame):
             self.w = popupWindow(self.master, "You will now start practice.")
             self.master.wait_window(self.w.top)
             start_reaching(self.drPath, self.lbl_tgt, self.num_joints, self.joints, self.dr_mode)
-            # [ADD CODE ABOVE: one of the argument of start reaching should be [self.check_mouse]
+            # [ADD CODE HERE: one of the argument of start reaching should be [self.check_mouse]
             # to check in the checkbox is enable] !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         else:
             self.w = popupWindow(self.master, "Perform customization first.")
@@ -760,7 +760,7 @@ def save_parameters(self, drPath):
 
     print('Customization values have been saved. You can continue with practice.')
 
-# [ADD CODE: check_mouse as function input]
+# [ADD CODE HERE: check_mouse as function input]
 def start_reaching(drPath, lbl_tgt, num_joints, joints, dr_mode):
     """
     function to perform online cursor control - practice
