@@ -155,3 +155,10 @@ step 9 --> eventually [not always] there is the possibility that it is necessary
 step 10 --> On Visual Studio Code run the file main_reaching.py
 
 # Graphical User Interface
+
+If you run the script main_reaching.py, you should see something like this:
+
+![BoMI_0](https://user-images.githubusercontent.com/75327840/142367411-f78e3f09-481a-4edd-95c4-f8a23778b0e2.png)
+
+*Figure 1. Markerless BoMI GUI
+
