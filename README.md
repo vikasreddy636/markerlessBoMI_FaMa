@@ -206,7 +206,10 @@ At this point you can press the button **Start**. A window as the one in Figure 
 
 Figure 7. Window to tune the customization parameters.
 
-**Step 5: Practice**. When you finish with the customization step, you can press the button **Pratice** and a window as the one in Figure 8 will appear. At this point you will start the **reaching task**.
+**Step 5: Practice**. When you finish with the customization step, you can press the button **Pratice** and a window as the one in Figure 8 will appear. At this point you will start the **reaching task**. 
+**[IMPORTANT!! If for any reason you are stuck and you want to close the application press the key 'p' in your keyboard and it will pause the program]**
+
+The reaching 
 
 ![BoMI_8](https://user-images.githubusercontent.com/75327840/142374722-5f860b01-58fd-4293-882d-bfee32afd507.png)
 
