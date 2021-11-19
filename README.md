@@ -137,10 +137,15 @@ step 4 --> create virtualenv (named BoMI) and activate it
     $ BoMI\Scripts\activate
 ``` 
 
-step 5 --> Upgrade pip and download all the following packages (in the terminal):
+step 5 --> Upgrade pip and download all the packages (you should be in the folder where requirments.txt is). In the terminal type:
 
 ``` 
     $ pip install --upgrade pip
+    $ pip install -r requirments.txt
+``` 
+If the line before does not work, download all the following packages (in the terminal):
+
+``` 
     $ pip install numpy
     $ pip install pandas
     $ pip install matplotlib
@@ -150,6 +155,7 @@ step 5 --> Upgrade pip and download all the following packages (in the terminal)
     $ pip install mediapipe
     $ pip install scipy
     $ pip install sklearn
+    $ pip install opencv-python
 ``` 
 
 step 6 --> Download Visual Studio Code (https://code.visualstudio.com/download)
