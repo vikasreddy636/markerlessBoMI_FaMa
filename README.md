@@ -152,15 +152,17 @@ step 5 --> Upgrade pip and download all the following packages (in the terminal)
     $ pip install sklearn
 ``` 
 
-step 6 --> download Visual Studio Code (https://code.visualstudio.com/download)
+step 6 --> Download Visual Studio Code (https://code.visualstudio.com/download)
 
-Step 7 --> Download the repository from the current github page and open it as a project in Visual Studio Code
+Step 7 --> Download the repository from the current github page and open it as a folder in Visual Studio Code
 
-step 8 --> Set the correct python interpreter (the one of the virtual environment created - BoMI\Scripts\python) in Visual Studio Code from the bottom left corner: left click on the bottom left corner and follow the instruction searching for BoMI\Scripts\python.
+step 8 --> Download 'python extension' for Visual Studio Code (on the left side select 'Extensions' and download python)
 
-step 9 --> eventually [not always] there is the possibility that it is necessary to do the steps described here https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads
+step 9 --> Set the correct python interpreter (the one of the virtual environment created - BoMI\Scripts\python) in Visual Studio Code from the bottom left corner: left click on the bottom left corner and follow the instruction searching for BoMI\Scripts\python.
 
-step 10 --> On Visual Studio Code run the file main_reaching.py
+step 10 --> eventually [not always] there is the possibility that it is necessary to do the steps described here https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads
+
+step 11 --> On Visual Studio Code run the file main_reaching.py
 
 # Graphical User Interface
 
