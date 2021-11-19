@@ -112,7 +112,7 @@ step 7 --> follow the steps in the GUI (see below after WINDOWS installation ste
 
 **TESTED with python>=3.7**
 
-step 0 --> download Python3 at this link https://www.python.org/downloads/ 
+step 0 --> download Python3 at this link https://www.python.org/downloads/ [**During installation select Add Python to PATH**]
 
 step 1 --> enable long path (https://www.howtogeek.com/266621/how-to-make-windows-10-accept-file-paths-over-260-characters/) --> remember to launch regedit as root ("amministratore")
 
