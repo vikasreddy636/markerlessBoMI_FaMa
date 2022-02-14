@@ -930,7 +930,7 @@ def start_reaching(drPath, lbl_tgt, num_joints, joints, dr_mode, real_cursor):
                 r.old_crs_x = r.crs_x
                 r.old_crs_y = r.crs_y
 
-                print("fuck")
+                print("done")
                 # Set target position to update the GUI
                 reaching_functions.set_target_reaching(r)
                 # First, clear the screen to black. In between screen.fill and pygame.display.flip() all the draw
